@@ -35,12 +35,11 @@ export default function Navbar() {
         <Logo className="relative z-50" />
 
         <ul className="hidden items-center gap-1 rounded-full border border-line bg-surface/60 p-1 backdrop-blur md:flex">
-          {navLinks
-            .filter((l) => l.to !== "/contact")
-            .map((link) => (
+          {navLinks.map((link) => (
               <li key={link.to}>
                 <NavLink
                   to={link.to}
+                  end={link.to === "/"}
                   className={({ isActive }) =>
                     `block rounded-full px-5 py-2 text-sm font-medium transition-colors ${
                       isActive ? "bg-white text-black" : "text-white/70 hover:text-white"
@@ -76,7 +75,7 @@ export default function Navbar() {
             className="fixed inset-0 z-40 flex flex-col justify-between bg-ink px-5 pt-28 pb-10 md:hidden"
           >
             <ul className="space-y-2">
-              {[{ label: "Home", to: "/" }, ...navLinks].map((link, i) => (
+              {navLinks.map((link, i) => (
                 <motion.li
                   key={link.to}
                   initial={{ opacity: 0, y: 30 }}

@@ -6,7 +6,12 @@ import { site } from "../config/site";
 export default function CTASection() {
   const options = [
     { icon: Mail, label: "Email us", value: site.email, href: `mailto:${site.email}` },
-    { icon: Phone, label: "Call us", value: site.phone, href: `tel:${site.phone.replace(/\s/g, "")}` },
+    ...site.phones.map((phone) => ({
+      icon: Phone,
+      label: "Call us",
+      value: phone,
+      href: `tel:${phone.replace(/\s/g, "")}`,
+    })),
     { icon: MessageCircle, label: "WhatsApp", value: "Chat with us", href: `https://wa.me/${site.whatsapp}` },
   ];
 

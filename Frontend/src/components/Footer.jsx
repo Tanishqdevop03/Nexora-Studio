@@ -55,11 +55,13 @@ export default function Footer() {
                   {site.email}
                 </a>
               </li>
-              <li>
-                <a href={`tel:${site.phone.replace(/\s/g, "")}`} className="transition hover:text-accent">
-                  {site.phone}
-                </a>
-              </li>
+              {site.phones.map((phone) => (
+                <li key={phone}>
+                  <a href={`tel:${phone.replace(/\s/g, "")}`} className="transition hover:text-accent">
+                    {phone}
+                  </a>
+                </li>
+              ))}
               <li>
                 <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer" className="transition hover:text-accent">
                   WhatsApp

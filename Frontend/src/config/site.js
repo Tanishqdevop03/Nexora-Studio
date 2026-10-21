@@ -4,6 +4,7 @@ export const site = {
   tagline: "Product Engineering Studio",
   email: "hello@nexorastudio.com",
   phone: "+91 00000 00000",
+  phones: ["+91 00000 00000", "+91 8700174362"],
   // WhatsApp number in international format, digits only
   whatsapp: "910000000000",
   location: "India · Working worldwide",
@@ -16,6 +17,7 @@ export const site = {
 };
 
 export const navLinks = [
+  { label: "Home", to: "/" },
   { label: "About", to: "/about" },
   { label: "Services", to: "/services" },
   { label: "Work", to: "/work" },
