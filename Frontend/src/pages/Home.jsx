@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowDown, ArrowUpRight, Cpu, Layers, Users } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Code2, Cpu, Layers, MonitorSmartphone, ShoppingCart, Users } from "lucide-react";
 import Button from "../components/Button";
 import Reveal from "../components/Reveal";
 import Marquee from "../components/Marquee";
@@ -19,6 +19,9 @@ const heroWords = ["Complex", "products,", "engineered", "for", "ambitious", "fo
 const pillars = [
   { icon: Layers, title: "Product Engineering", text: "Architecture and code built to scale — not to be rewritten in six months." },
   { icon: Cpu, title: "AI & Automation", text: "LLM features and automations that save real hours, not demo-ware." },
+  { icon: Code2, title: "Custom Software", text: "Purpose-built software designed around your business, users, and workflows." },
+  { icon: ShoppingCart, title: "E-commerce", text: "Online stores and commerce systems built for smoother shopping and reliable growth." },
+  { icon: MonitorSmartphone, title: "Web & App Development", text: "Websites, web apps, and mobile experiences tailored to the way your customers work." },
   { icon: Users, title: "Direct Founder Access", text: "You talk to the people building your product. No account managers in between." },
 ];
 
@@ -30,16 +33,6 @@ function Hero() {
       <div className="pointer-events-none absolute -right-40 bottom-0 h-[400px] w-[400px] rounded-full bg-accent/15 blur-[140px]" />
 
       <div className="container-x relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-line bg-surface/60 px-4 py-2 text-sm text-white/80 backdrop-blur"
-        >
-          <span className="h-2 w-2 animate-pulse-dot rounded-full bg-accent" />
-          Taking on new projects for this quarter
-        </motion.div>
-
         <h1 className="max-w-6xl text-[13vw] leading-[0.95] font-semibold sm:text-7xl md:text-8xl lg:text-[7.5rem]">
           {heroWords.map((word, i) => (
             <span key={i} className="inline-block overflow-hidden pr-[0.25em] align-top">
@@ -175,7 +168,7 @@ function ServicesPreview() {
         </div>
 
         <div className="mt-16 border-t border-line">
-          {services.slice(0, 4).map((service, i) => (
+          {services.map((service, i) => (
             <Reveal key={service.id} delay={i * 0.05}>
               <Link
                 to={`/services#${service.id}`}

@@ -8,8 +8,7 @@ import { services } from "../data/services";
 import { site } from "../config/site";
 import { sendContact } from "../lib/api";
 
-const budgets = ["< $2k", "$2k – $5k", "$5k – $15k", "$15k+", "Not sure yet"];
-const initialForm = { name: "", email: "", company: "", service: "", budget: "", message: "", website: "" };
+const initialForm = { name: "", email: "", company: "", service: "", message: "", website: "" };
 
 function Field({ label, error, children }) {
   return (
@@ -61,7 +60,12 @@ export default function Contact() {
 
   const contactItems = [
     { icon: Mail, label: "Email", value: site.email, href: `mailto:${site.email}` },
-    { icon: Phone, label: "Phone", value: site.phone, href: `tel:${site.phone.replace(/\s/g, "")}` },
+    ...site.phones.map((phone) => ({
+      icon: Phone,
+      label: "Phone",
+      value: phone,
+      href: `tel:${phone.replace(/\s/g, "")}`,
+    })),
     { icon: MessageCircle, label: "WhatsApp", value: "Chat with us", href: `https://wa.me/${site.whatsapp}` },
     { icon: MapPin, label: "Location", value: site.location },
     { icon: Clock, label: "Response time", value: site.responseTime },
@@ -135,30 +139,12 @@ export default function Contact() {
                       </Field>
                     </div>
 
-                    <div>
-                      <span className="mb-3 block text-sm text-white/70">Budget</span>
-                      <div className="flex flex-wrap gap-2">
-                        {budgets.map((b) => (
-                          <button
-                            type="button"
-                            key={b}
-                            onClick={() => setForm((f) => ({ ...f, budget: f.budget === b ? "" : b }))}
-                            className={`rounded-full px-5 py-2.5 text-sm transition ${
-                              form.budget === b ? "bg-accent text-black" : "border border-line text-white/70 hover:text-white"
-                            }`}
-                          >
-                            {b}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-
                     <Field label="Tell us about your project *" error={errors.message}>
                       <textarea
                         rows={6}
                         value={form.message}
                         onChange={update("message")}
-                        placeholder="What are you building? What problem are you solving? Any timelines?"
+                        placeholder="Share your budget, what you're building, the problem you're solving, and any timelines."
                         className={`${inputClass(errors.message)} resize-none`}
                       />
                     </Field>

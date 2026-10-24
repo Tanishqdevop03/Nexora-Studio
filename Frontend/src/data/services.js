@@ -10,6 +10,26 @@ export const services = [
     stack: ["React", "Next.js", "Node.js", "PostgreSQL"],
   },
   {
+    id: "e-commerce",
+    tag: "E-commerce",
+    title: "E-commerce Development",
+    short: "Online stores built for smooth shopping journeys and reliable growth.",
+    description:
+      "We build e-commerce experiences that make it easy to discover, buy and manage products, with secure payments and integrations tailored to your operations.",
+    points: ["Custom online stores", "Payment and checkout flows", "Catalog and inventory systems", "E-commerce integrations"],
+    stack: ["React", "Node.js", "Stripe", "Shopify"],
+  },
+  {
+    id: "custom-software",
+    tag: "Custom Software",
+    title: "Custom Software Development",
+    short: "Purpose-built software to fit the way your business actually works.",
+    description:
+      "From internal tools to specialized business applications, we design and develop software around your workflows, users and long-term goals.",
+    points: ["Business applications", "Internal tools and portals", "Workflow digitization", "Modernization and support"],
+    stack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+  },
+  {
     id: "ai-automation",
     tag: "AI / LLM",
     title: "AI & Automation",
@@ -63,6 +83,8 @@ export const services = [
 
 export const ticker = [
   "Product Engineering",
+  "E-commerce Development",
+  "Custom Software",
   "AI Automation",
   "Full-Stack Dev",
   "Platform Builds",
